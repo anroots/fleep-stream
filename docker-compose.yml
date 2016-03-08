@@ -1,0 +1,13 @@
+version: "2"
+
+services:
+  fleep:
+    build: .
+    environment:
+      FLEEP_PASSWORD:
+      FLEEP_EMAIL:
+    volumes:
+      - ./src:/usr/src/app:ro
+
+    # To get color output and possibly interact with Fleep
+    tty: true
