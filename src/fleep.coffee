@@ -1,6 +1,12 @@
 Client = require('node-rest-client').Client
 
-fleepClient = new Client
+clientOptions =
+    proxy:
+      host: process.env.PROXY_HOST,
+      port: process.env.PROXY_PORT,
+      tunnel: true
+
+fleepClient = new Client clientOptions
 
 fleepClient.registerMethod 'login', 'https://fleep.io/api/account/login', 'POST'
 fleepClient.registerMethod 'poll', 'https://fleep.io/api/account/poll', 'POST'
